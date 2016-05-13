@@ -1,0 +1,67 @@
+Person
+  # person_id is automatically generated
+  first_name: text
+  last_name: text
+  nickname: text
+
+Department
+  name: text
+  phone: text
+  address: text
+  created_at: datetime
+  updated_at: datetime
+
+Employee
+  department_id
+  person_id
+  title: text
+  supported: boolean
+  phone: text
+  address: text
+  created_at: datetime
+  updated_at: datetime
+
+Equipment
+  serial: text
+  model_id
+  manufacturer_id
+  purchase_id
+  value: integer
+  created_at: datetime
+  updated_at: datetime
+
+Manufacturer
+  name: text
+
+Model
+  name: text
+  manufacturer_id
+
+Purchase
+  order: text
+  date: date
+  price: integer
+  create_on: date
+
+#models the relationship between a person and a particular piece of eqipment assigned to them
+User
+  person_id
+  equipment_id
+  type_id
+  created_at: datetime
+  updated_at: datetime
+  
+Type
+  status: text
+
+#models the relationship between a department and a particular piece of equipment
+#used for cases when an item is communal property, and to determine property ownership for insurance purposes
+
+Owner
+  department_id
+  equipment_id
+  type_id
+  created_at: datetime
+  updated_at: datetime
+
+
