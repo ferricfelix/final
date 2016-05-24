@@ -21,7 +21,7 @@ Employee
   created_at: datetime
   updated_at: datetime
 
-Equipment
+Item
   serial: text
   model_id
   manufacturer_id
@@ -46,7 +46,7 @@ Purchase
 #models the relationship between a person and a particular piece of eqipment assigned to them
 User
   person_id
-  equipment_id
+  item_id
   type_id
   created_at: datetime
   updated_at: datetime
@@ -54,12 +54,12 @@ User
 Type
   status: text
 
-#models the relationship between a department and a particular piece of equipment
+#models the relationship between a department and a particular piece of item
 #used for cases when an item is communal property, and to determine property ownership for insurance purposes
 
 Owner
   department_id
-  equipment_id
+  item_id
   type_id
   created_at: datetime
   updated_at: datetime

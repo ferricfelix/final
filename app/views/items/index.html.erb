@@ -1,0 +1,14 @@
+<div>
+	<p> Some Equipment For You </p>
+</div>
+
+
+<% @items.each do |item| %>
+	
+	<div> <!-- need to define some css at some point -->
+		<!-- <a href="http://www.w3schools.com">Visit W3Schools</a> -->
+		<!-- what does data-id do in this case?  -->
+		<a href ="/items/<%= item.id %>" data-id="<%= item.id %>"><%= item.serial %></a>
+	</div>
+
+<% end %>
