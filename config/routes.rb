@@ -25,9 +25,9 @@ The highlighted words correspond to standard Rails controller actions!
 
   root 'items#index'
 
-  get "/items" => "items#index"
-  get "/items/:id" => "items#show"
-  get "/items/new" => "items#new"
+  get "/items" => "items#index" #done
+  get "/items/:id" => "items#show" #done
+  get "/items/new" => "items#new" 
   post "/items" => "items#create"
   get "/items/:id/edit" => "items#edit"
   put "/items/:id" => "items#update"
