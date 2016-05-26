@@ -48,6 +48,7 @@ User
   person_id
   item_id
   type_id
+  note: text
   created_at: datetime
   updated_at: datetime
   
@@ -61,6 +62,7 @@ Owner
   department_id
   item_id
   type_id
+  note: text
   created_at: datetime
   updated_at: datetime
 
