@@ -54,19 +54,16 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "models", force: :cascade do |t|
-    t.text    "name"
-    t.integer "manufacturer_id"
+    t.text "name"
   end
-
-  add_index "models", ["manufacturer_id"], name: "index_models_on_manufacturer_id"
 
   create_table "owners", force: :cascade do |t|
     t.integer  "department_id"
     t.integer  "item_id"
     t.integer  "type_id"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "note"
   end
 
   add_index "owners", ["department_id"], name: "index_owners_on_department_id"
@@ -94,9 +91,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer  "person_id"
     t.integer  "item_id"
     t.integer  "type_id"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "note"
   end
 
   add_index "users", ["item_id"], name: "index_users_on_item_id"
