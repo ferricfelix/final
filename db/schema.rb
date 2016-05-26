@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "note"
   end
 
   add_index "owners", ["department_id"], name: "index_owners_on_department_id"
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "note"
   end
 
   add_index "users", ["item_id"], name: "index_users_on_item_id"

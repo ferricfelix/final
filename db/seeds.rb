@@ -35,6 +35,7 @@ Boris.last_name = "Molotov"
 Boris.nickname = "Hammmer"
 Boris.save
 
+
 Department.delete_all
 
 HumanitiesComputing = Department.new
@@ -107,6 +108,70 @@ iMac.manufacturer_id = "1"
 iMac.purchase_id = "4"
 iMac.value = "400"
 iMac.save
+
+
+User.delete_all
+
+user1 = User.new
+user1.item_id = "1"
+user1.person_id = "1"
+user1.save
+
+user2 = User.new
+user2.item_id = "1"
+user2.person_id = "2"
+user2.save
+
+user3 = User.new
+user3.item_id = "3"
+user3.person_id = "1"
+user3.save
+
+user4 = User.new
+user4.item_id = "4"
+user4.person_id = "2"
+user4.save
+
+user5 = User.new
+user5.item_id = "5"
+user5.person_id = "2"
+user5.save
+
+user6 = User.new
+user6.item_id = "1"
+user6.person_id = "2"
+user6.save
+
+
+
+Owner.delete_all
+
+owner = Owner.new
+owner.department_id = "1"
+owner.item_id = "1"
+owner.save
+
+
+owner = Owner.new
+owner.department_id = "2"
+owner.item_id = "4"
+owner.save
+
+
+owner = Owner.new
+owner.department_id = "2"
+owner.item_id = "5"
+owner.save
+
+Type.delete_all
+
+supported = Type.new
+supported.status = "Supported"
+supported.save
+
+not_supported = Type.new
+not_supported.status = "Not Supported"
+not_supported.save
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
