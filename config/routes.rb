@@ -22,17 +22,17 @@ The highlighted words correspond to standard Rails controller actions!
 
 =end
 
-
+  
   root 'items#index'
-
-  get "/items" => "items#index" #done
+  resources :items
+  # get "/items" => "items#index" #done
  
-  get "/items/new" => "items#new" 
-  post "/items" => "items#create"
-  get "/items/:id" => "items#show" #done
-  get "/items/:id/edit" => "items#edit"
-  put "/items/:id" => "items#update"
-  delete "/items/:id" => "items#destroy"
+  # get "/items/new" => "items#new" 
+  # post "/items" => "items#create"
+  # get "/items/:id" => "items#show" #done
+  # get "/items/:id/edit" => "items#edit"
+  # put "/items/:id" => "items#update"
+  # delete "/items/:id" => "items#destroy"
 
 
 
