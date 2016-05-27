@@ -1,3 +1,6 @@
+<p>
+	<%= link_to "List of Items", "root_path" %> <!-- no method specified, defaults to GET -->
+</p>
 
 <p>	<strong>serial: </strong> <%= @item.serial %> </p>
 <p>	<strong>model_id: </strong> <%= @item.model_id %> </p>
@@ -7,7 +10,4 @@
 <p>	<strong>created_at: </strong> <%= @item.created_at %> </p>
 <p>	<strong>updated_at: </strong> <%= @item.updated_at %> </p>
 
-
-<p>
-	<%= link_to "Back to Equipment Index", "root_path" %> <!-- no method specified, defaults to GET -->
-</p>
+<%= link_to  "Delete this Item", @item, :method => :delete %>

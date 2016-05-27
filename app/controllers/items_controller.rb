@@ -16,14 +16,22 @@ class ItemsController < ApplicationController
 	
 	def create
 		m = Item.new
-		m.serial = params[:serial]
-		m.value = params[:value]
-		m.model_id = params[:model_id]
-		m.manufacturer_id = params[:manufacturer_id]
-		m.purchase_id = params[:purchase_id]
+		m.serial = params[:item][:serial]
+		m.value = params[:item][:value]
+		m.model_id = params[:item][:model_id]
+		m.manufacturer_id = params[:item][:manufacturer_id]
+		m.purchase_id = params[:item][:purchase_id]
 		m.save
 		redirect_to root_path
 	end 
+
+	def destroy
+		item = Item.find_by(id: params[:id])
+		if item
+			item.delete
+		end
+		redirect_to root_path
+	end
 
 
 end

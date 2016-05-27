@@ -1,8 +1,10 @@
 <div>
-	<p> Some Equipment For You </p>
+	<p> Items </p>
 </div>
-
-
+<p>
+<%= link_to "Create New Item", controller: "items" , action: "new" %>
+</p>
+<div>
 <% @items.each do |item| %>
 	
 	<div> <!-- need to define some css at some point -->
@@ -12,3 +14,4 @@
 	</div>
 
 <% end %>
+</div>

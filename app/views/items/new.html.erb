@@ -1,55 +1,31 @@
 <h2> Add a New Item </h2>
 
-<!-- <form action="/movies" method="post"> -->
-<%= form_tag "/items", :method => :post do %>
-
-  <p>
-    <!-- <label for="title">Title:</label> -->
-    <%= label_tag :serial, "Serial" %>
-    <br>
-    <!-- <input id="title" size="80" type="text" name="title"> -->
-    <%= text_field_tag :serial, "", :size => 80 %>
-  </p>
-
-  <p>
-    <%= label_tag :value, "Value" %>
-    <br>
-    <%= text_field_tag :value, "", :size => 80 %>
-  </p>
-
-	<p>
-    <%= label_tag :model_id, "Model" %>
-    <br>
-    <%= text_field_tag :model_id, "", :size => 80 %>
-  </p>
-
-  <p>
-    <%= label_tag :manufacturer_id, "Manufacturer" %>
-    <br>
-    <%= text_field_tag :manufacturer_id, "", :size => 80 %>
-  </p>
-
-  <p>
-    <%= label_tag :purchase_id, "Purchase Order" %>
-    <br>
-    <%= text_field_tag :purchase_id, "", :size => 80 %>
-  </p>
-
-
-
-
-  
-
-  <input type="submit" value="Add Item">
-
-<% end %>
-
+<p>
+<%= link_to "List of Items", root_path %>
+</p>
+<div>
 <%= form_for @item do |f| %>
-	<p><%= f.label :serial %><%= f.text_field :serial, size: 40, autofocus: true, required: true %></p>
-	<%= f.label :value %><%= f.number_field :value %>
-	<%= f.number_field :model_id %>
-	<%= f.number_field :manufacturer_id %>
-	<%= f.number_field :purchase_id %>
-	<%= f.submit "Create Item" %>
+	<p>
+		<%= f.label :serial %>
+		<%= f.text_field :serial, size: 40, autofocus: true, required: true %>
+	</p>
+	<p>
+		<%= f.label :value %>
+		<%= f.text_field :value %>
+	</p>
+	<p>
+		<%= f.label :model_id %>
+		<%= f.text_field :model_id %>
+	</p>
+	<p>
+		<%= f.label :manufacturer_id %>
+		<%= f.text_field :manufacturer_id %>
+	</p>
+	<p>
+		<%= f.label :purchase_id %>
+		<%= f.text_field :purchase_id %>
+	</p>
+	<%= f.submit %>
 
 <% end %>
+</div>
