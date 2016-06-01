@@ -25,6 +25,8 @@ The highlighted words correspond to standard Rails controller actions!
   
   root 'items#index'
   resources :items
+  resources :people
+
   # get "/items" => "items#index" #done
  
   # get "/items/new" => "items#new" 
