@@ -1,0 +1,24 @@
+<h2> Edit <%= @person.first_name %> "<%= @person.nickname %>" <%= @person.last_name %>'s Record </h2>
+
+<div>
+<!-- The default values should be set by the form_for helper, ala @person.attribute -->
+<%= form_for @person do |p| %>
+	<p>
+		<%= p.label :first_name %>
+		<%= p.text_field :first_name, size: 40, autofocus: true, required: true %>
+	</p>
+	<p>
+		<%= p.label :last_name %>
+		<%= p.text_field :last_name, size: 40, required: true %>
+	</p>
+	<p>
+		<%= p.label :nickname%>
+		<%= p.text_field :nickname %>
+	</p>
+	
+	<%= p.submit %>
+
+<% end %>
+</div>
+
+

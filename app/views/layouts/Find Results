@@ -1,0 +1,17 @@
+Searching 122 files for "people" (case sensitive)
+
+/Users/shumkov/Web Development/final/config/initializers/inflections.rb:
+    7  #   inflect.plural /^(ox)$/i, '\1en'
+    8  #   inflect.singular /^(ox)en/i, '\1'
+    9: #   inflect.irregular 'person', 'people'
+   10  #   inflect.uncountable %w( fish sheep )
+   11  # end
+
+/Users/shumkov/Web Development/final/db/schema.rb:
+   71    add_index "owners", ["type_id"], name: "index_owners_on_type_id"
+   72  
+   73:   create_table "people", force: :cascade do |t|
+   74      t.text "first_name"
+   75      t.text "last_name"
+
+2 matches across 2 files
