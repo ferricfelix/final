@@ -81,7 +81,7 @@ iMac = Item.new
 iMac.serial = "112"
 iMac.model_id = "1"
 iMac.manufacturer_id = "1"
-iMac.purchase_id = "2"
+iMac.purchase_id = "1"
 iMac.value = "400"
 iMac.save
 
@@ -89,7 +89,7 @@ iMac = Item.new
 iMac.serial = "113"
 iMac.model_id = "1"
 iMac.manufacturer_id = "1"
-iMac.purchase_id = "3"
+iMac.purchase_id = "1"
 iMac.value = "400"
 iMac.save
 
@@ -97,7 +97,7 @@ iMac = Item.new
 iMac.serial = "114"
 iMac.model_id = "1"
 iMac.manufacturer_id = "1"
-iMac.purchase_id = "4"
+iMac.purchase_id = "1"
 iMac.value = "400"
 iMac.save
 
@@ -105,7 +105,7 @@ iMac = Item.new
 iMac.serial = "115"
 iMac.model_id = "1"
 iMac.manufacturer_id = "1"
-iMac.purchase_id = "4"
+iMac.purchase_id = "1"
 iMac.value = "400"
 iMac.save
 
@@ -172,6 +172,37 @@ supported.save
 not_supported = Type.new
 not_supported.status = "Not Supported"
 not_supported.save
+
+Manufacturer.delete_all
+
+m = Manufacturer.new
+m.name = "Apple"
+m.save
+
+m = Manufacturer.new
+m.name = "Kamaz"
+m.save
+
+Model.delete_all
+
+m = Model.new
+m.name = "iMac"
+m.save
+
+m = Model.new
+m.name = "MacBook Pro"
+m.save
+
+m = Model.new
+m.name = "Briefcase Bomb"
+m.save
+
+Purchase.delete_all
+
+p = Purchase.new
+p.order = "G109456"
+p.date = "06/02/2016"
+p.price = "500000"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).

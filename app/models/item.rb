@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   has_many :owners
   has_many :departments, :through => :owners
 
-  has_one :manufacturer
-  has_one :model
-  has_one :purchase
+  belongs_to :manufacturer
+  belongs_to :model
+  belongs_to :purchase
 end

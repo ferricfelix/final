@@ -27,6 +27,7 @@ The highlighted words correspond to standard Rails controller actions!
   resources :items
   resources :people
   resources :departments
+  resources :employees
 
   # get "/items" => "items#index" #done
  

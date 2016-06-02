@@ -1,0 +1,15 @@
+<div>
+	<p> Employees </p>
+</div>
+<p>
+<%= link_to "Create New Employee", new_employee_path %>
+</p>
+<div>
+<% @employees.each do |employee| %>
+	
+	<div>
+		<%= link_to "#{employee.id}", employee_path(:id) %>
+	</div>
+
+<% end %>
+</div>

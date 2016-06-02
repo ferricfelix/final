@@ -7,10 +7,8 @@
 <div>
 <% @departments.each do |department| %>
 	
-	<div> <!-- need to define some css at some point -->
-		<!-- <a href="http://www.w3schools.com">Visit W3Schools</a> -->
-		<!-- what does data-id do in this case?  -->
-		<a href ="/departments/<%= department.id %>"><%= department.name %></a>
+	<div> 
+		<%= link_to "#{department.name}", department_path(department) %>
 	</div>
 
 <% end %>

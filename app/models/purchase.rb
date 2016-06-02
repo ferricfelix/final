@@ -1,3 +1,3 @@
 class Purchase < ActiveRecord::Base
-  belongs_to :item
+  has_many :item
 end
