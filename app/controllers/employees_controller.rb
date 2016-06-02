@@ -7,7 +7,8 @@ class EmployeesController < ApplicationController
 	def show
 		@employee = Employee.find_by(id: params[:id])
 		if @employee == nil
-				redirect_to root_path
+			flash.now[:notice] = 'Message sent!'
+			redirect_to employees_path
 		end		
 	end	
 
@@ -40,6 +41,7 @@ class EmployeesController < ApplicationController
 	end
 
 	def update
+		employee = Employee.find_by(id: params[:id])
 		employee.department_id = params[:employee][:department_id]
 		employee.person_id = params[:employee][:person_id]
 		employee.title = params[:employee][:title]

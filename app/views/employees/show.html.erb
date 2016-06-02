@@ -1,0 +1,16 @@
+<h2><%= @employee.person.first_name + " " + @employee.person.last_name + " | " + @employee.department.name %></h2>
+
+<p>	<strong>First Name: </strong> <%= @employee.person.first_name %> </p>
+<p>	<strong>First Name: </strong> <%= @employee.person.last_name %> </p>
+<p>	<strong>Nickname: </strong> <%= @employee.person.nickname %> </p>
+<p>	<strong>Department: </strong> <%= @employee.department.name %> </p>
+
+<p>	<strong>title: </strong> <%= @employee.title %> </p>
+<p>	<strong>supported?: </strong> <%= @employee.supported %> </p>
+<p>	<strong>phone: </strong> <%= @employee.phone %> </p>
+<p>	<strong>address: </strong> <%= @employee.address %> </p>
+<p>	<strong>created_at: </strong> <%= @employee.created_at %> </p>
+<p>	<strong>updated_at: </strong> <%= @employee.updated_at %> </p>
+
+<%= link_to "Edit this Item", edit_employee_path(@employee.id)%>
+<%= link_to "Delete this Item", @employee, :method => :delete %>

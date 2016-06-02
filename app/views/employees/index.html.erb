@@ -8,7 +8,7 @@
 <% @employees.each do |employee| %>
 	
 	<div>
-		<%= link_to "#{employee.id}", employee_path(:id) %>
+		<%= link_to "#{employee.person.first_name + " " + employee.person.last_name + " | " + employee.department.name}", employee_path(employee) %>
 	</div>
 
 <% end %>
