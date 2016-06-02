@@ -1,0 +1,8 @@
+<h2><%= @department.name %></h2>
+
+<p>	<strong>name: </strong> <%= @department.name %> </p>
+<p>	<strong>phone: </strong> <%= @department.phone %> </p>
+<p>	<strong>address: </strong> <%= @department.address%> </p>
+
+<%= link_to "Edit this Item", edit_department_path(@department.id)%>
+<%= link_to "Delete this Item", @department, :method => :delete %>

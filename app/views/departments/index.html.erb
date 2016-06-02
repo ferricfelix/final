@@ -1,0 +1,17 @@
+<div>
+	<p> Departments </p>
+</div>
+<p>
+<%= link_to "Create New Department", new_department_path %>
+</p>
+<div>
+<% @departments.each do |department| %>
+	
+	<div> <!-- need to define some css at some point -->
+		<!-- <a href="http://www.w3schools.com">Visit W3Schools</a> -->
+		<!-- what does data-id do in this case?  -->
+		<a href ="/departments/<%= department.id %>"><%= department.name %></a>
+	</div>
+
+<% end %>
+</div>
