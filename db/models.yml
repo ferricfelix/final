@@ -44,7 +44,7 @@ Purchase
 
 #models the relationship between a person and a particular piece of eqipment assigned to them
 User
-  person_id
+  employee_id
   item_id
   type_id
   note: text

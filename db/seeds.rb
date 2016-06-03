@@ -114,32 +114,32 @@ User.delete_all
 
 user1 = User.new
 user1.item_id = "1"
-user1.person_id = "1"
+user1.employee_id = "1"
 user1.save
 
 user2 = User.new
 user2.item_id = "1"
-user2.person_id = "2"
+user2.employee_id = "2"
 user2.save
 
 user3 = User.new
 user3.item_id = "3"
-user3.person_id = "1"
+user3.employee_id = "1"
 user3.save
 
 user4 = User.new
 user4.item_id = "4"
-user4.person_id = "2"
+user4.employee_id = "2"
 user4.save
 
 user5 = User.new
 user5.item_id = "5"
-user5.person_id = "2"
+user5.employee_id = "2"
 user5.save
 
 user6 = User.new
 user6.item_id = "1"
-user6.person_id = "2"
+user6.employee_id = "2"
 user6.save
 
 

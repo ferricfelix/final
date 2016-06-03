@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 		if item
 			item.delete
 		end
-		redirect_to root_path
+		redirect_to employees_root
 	end
 
 	def edit

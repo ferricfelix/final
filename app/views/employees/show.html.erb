@@ -3,6 +3,7 @@
 <p>	<strong>First Name: </strong> <%= @employee.person.first_name %> </p>
 <p>	<strong>First Name: </strong> <%= @employee.person.last_name %> </p>
 <p>	<strong>Nickname: </strong> <%= @employee.person.nickname %> </p>
+<!-- employee can be in multiple departments, so watch out for this -->
 <p>	<strong>Department: </strong> <%= @employee.department.name %> </p>
 
 <p>	<strong>title: </strong> <%= @employee.title %> </p>
@@ -12,5 +13,17 @@
 <p>	<strong>created_at: </strong> <%= @employee.created_at %> </p>
 <p>	<strong>updated_at: </strong> <%= @employee.updated_at %> </p>
 
-<%= link_to "Edit this Item", edit_employee_path(@employee.id)%>
-<%= link_to "Delete this Item", @employee, :method => :delete %>
+<% @employee.users.each do |user| %>
+	
+	<div>
+		<%= link_to user.item.manufacturer.name + " " + user.item.model.name, item_path(user.item) %> <%= link_to "Withdraw", user.item, :method => :delete %>
+	</div>
+
+<% end %>
+
+<!-- I ideally would like to pass the employee's id here as a secondary param -->
+<%= link_to "Provision new Item for this Employee", new_user_path, :employee_id => :@employee %>
+<br>
+
+<%= link_to "Edit this Employee", edit_employee_path(@employee.id)%>
+<%= link_to "Delete this Employee", @employee, :method => :delete %>

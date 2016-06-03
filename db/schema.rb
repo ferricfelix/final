@@ -88,16 +88,16 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "person_id"
     t.integer  "item_id"
     t.integer  "type_id"
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "employee_id"
   end
 
+  add_index "users", ["employee_id"], name: "index_users_on_employee_id"
   add_index "users", ["item_id"], name: "index_users_on_item_id"
-  add_index "users", ["person_id"], name: "index_users_on_person_id"
   add_index "users", ["type_id"], name: "index_users_on_type_id"
 
 end
