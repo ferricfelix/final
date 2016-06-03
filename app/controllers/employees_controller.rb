@@ -7,7 +7,7 @@ class EmployeesController < ApplicationController
 	def show
 		@employee = Employee.find_by(id: params[:id])
 		if @employee == nil
-			flash.now[:notice] = 'Message sent!'
+			flash.now[:notice] = 'No such employee!'
 			redirect_to employees_path
 		end		
 	end	

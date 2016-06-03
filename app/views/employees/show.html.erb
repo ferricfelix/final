@@ -3,9 +3,8 @@
 <p>	<strong>First Name: </strong> <%= @employee.person.first_name %> </p>
 <p>	<strong>First Name: </strong> <%= @employee.person.last_name %> </p>
 <p>	<strong>Nickname: </strong> <%= @employee.person.nickname %> </p>
-<!-- employee can be in multiple departments, so watch out for this -->
+<!-- person can be in multiple departments, but an *employee* can only be in one department by design, so watch out for this -->
 <p>	<strong>Department: </strong> <%= @employee.department.name %> </p>
-
 <p>	<strong>title: </strong> <%= @employee.title %> </p>
 <p>	<strong>supported?: </strong> <%= @employee.supported %> </p>
 <p>	<strong>phone: </strong> <%= @employee.phone %> </p>
@@ -16,7 +15,7 @@
 <% @employee.users.each do |user| %>
 	
 	<div>
-		<%= link_to user.item.manufacturer.name + " " + user.item.model.name, item_path(user.item) %> <%= link_to "Withdraw", user.item, :method => :delete %>
+		<%= link_to user.item.manufacturer.name + " " + user.item.model.name, item_path(user.item) %> <%= link_to "Withdraw", user, :method => :delete %>
 	</div>
 
 <% end %>

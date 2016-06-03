@@ -40,11 +40,11 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		user = user.find_by(id: params[:id])
+		user = User.find_by(id: params[:id])
 		if user
-			department.delete
+			user.delete
 		end
-		redirect_to users_path, notice: "User deleted successfully"
+		redirect_to root_path, notice: "User deleted successfully"
 	end
 
 end

@@ -23,7 +23,7 @@ The highlighted words correspond to standard Rails controller actions!
 =end
 
   
-  root 'items#index'
+  root 'employees#index'
   resources :items
   resources :people
   resources :departments
