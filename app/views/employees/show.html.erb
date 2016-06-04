@@ -21,7 +21,7 @@
 <% end %>
 
 <!-- I ideally would like to pass the employee's id here as a secondary param -->
-<%= link_to "Provision new Item for this Employee", new_user_path(employee_id: @employee.id) %>
+<%= link_to "Provision new Item for this Employee", new_user_path(some_param: {employee_id: @employee.id, other_stuff: :other_stuff}) %>
 <br>
 
 <%= link_to "Edit this Employee", edit_employee_path(@employee.id)%>
