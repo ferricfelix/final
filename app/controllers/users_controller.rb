@@ -13,6 +13,12 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+		if params.has_key?(:employee_id)
+			@employee = Employee.find_by(id: params[:employee_id])
+		# and what if we can't find a matching employee record? the case below is clearly not ideal
+		else
+			@employee = "no employee found"
+		end
 	end
 
 	def create
@@ -21,8 +27,10 @@ class UsersController < ApplicationController
 		user.item_id = params[:user][:item_id]
 		user.type_id = params[:user][:type_id]
 		user.note = params[:user][:note]
-		user.created_ad = params[:user][:created_at]
+		user.created_at = params[:user][:created_at]
 		user.updated_at = params[:user][:updated_at]
+		user.save
+		redirect_to employees_path
 	end
 
 	def edit

@@ -7,7 +7,22 @@ class ItemsController < ApplicationController
 		@item = Item.find_by(id: params[:id])
 		if @item == nil
 				redirect_to root_path
-		end		
+		end	
+		if @item.model.nil?
+  			@model = "No model is set for this item"
+  		else
+  			@model = @item.model.name
+		end	
+		if @item.manufacturer.nil?
+  			@manufacturer = "No manufacturer is set for this item"
+  		else
+  			@manufacturer = @item.manufacturer.name
+		end
+		if @item.purchase.nil?
+  			@purchase = "No purchase is set for this item"
+  		else
+  			@purchase = @item.purchase.order
+		end
 	end	
 
 	def new
