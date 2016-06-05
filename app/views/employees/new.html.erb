@@ -1,8 +1,7 @@
 <h2> Add a New Employee </h2>
-
-<p>
-<%= link_to "List of Employees", employees_path %>
-</p>
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
 <div>
 <%= form_for @employee do |e| %>
 <!-- this is a little bit like the directors selector, although it would be nice to have a search feature instead of a super long list -->

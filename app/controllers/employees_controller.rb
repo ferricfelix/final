@@ -25,7 +25,13 @@ class EmployeesController < ApplicationController
 		employee.phone = params[:employee][:phone]
 		employee.address = params[:employee][:address]	
 		employee.save
-		redirect_to employee_path(employee.id)
+		if employee.valid?
+			redirect_to employee_path(employee.id)
+		else
+			# flash[:error] = employee.errors.messages #this is way too revealing
+			flash[:error] = "You entered an incomplete record, your submission was rolled back."
+			redirect_to new_employee_path
+		end
 	end 
 
 	def destroy
