@@ -30,7 +30,13 @@ class UsersController < ApplicationController
 		user.created_at = params[:user][:created_at]
 		user.updated_at = params[:user][:updated_at]
 		user.save
-		redirect_to employees_path
+		if user.valid?
+			redirect_to user(user.id)
+		else
+			# flash[:error] = employee.errors.messages #this is way too revealing
+			flash[:error] = "You entered an incomplete record, your submission was rolled back."
+			redirect_to employees_path
+		end
 	end
 
 	def edit

@@ -5,4 +5,6 @@ class Department < ActiveRecord::Base
   has_many :owners
   has_many :items, :through => :owners
 
+  validates :name, presence :true
+
 end

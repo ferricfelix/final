@@ -1,6 +1,11 @@
 <div>
 	<p> Employees </p>
 </div>
+
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
 <p>
 <%= link_to "Create New Employee", new_employee_path %>
 </p>
