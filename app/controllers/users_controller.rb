@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 		user.updated_at = params[:user][:updated_at]
 		user.save
 		if user.valid?
-			redirect_to user(user.id)
+			redirect_to employee_path(user.employee.id)
 		else
 			# flash[:error] = employee.errors.messages #this is way too revealing
 			flash[:error] = "You entered an incomplete record, your submission was rolled back."
@@ -51,6 +51,13 @@ class UsersController < ApplicationController
 		user.note = params[:user][:note]
 		user.created_ad = params[:user][:created_at]
 		user.updated_at = params[:user][:updated_at]
+		if user.valid?
+			redirect_to employee_path(user.employee.id)
+		else
+			# flash[:error] = employee.errors.messages #this is way too revealing
+			flash[:error] = "You entered an incomplete record, your submission was rolled back."
+			redirect_to employees_path
+		end
 	end
 
 	def destroy
@@ -58,7 +65,7 @@ class UsersController < ApplicationController
 		if user
 			user.delete
 		end
-		redirect_to root_path, notice: "User deleted successfully"
+		redirect_to employee_path(user.employee.id)
 	end
 
 end

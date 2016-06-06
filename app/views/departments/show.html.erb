@@ -4,5 +4,26 @@
 <p>	<strong>phone: </strong> <%= @department.phone %> </p>
 <p>	<strong>address: </strong> <%= @department.address%> </p>
 
+<% @department.owners.each do |owner| %>
+	<div>
+		<%= if owner.item.manufacturer.nil?
+				@manufacturer_name = "Missing Manufacturer"
+			else
+				@manufacturer_name = owner.item.manufacturer.name
+			end
+			if owner.item.model.nil?
+				@model_name = "Missing Model"
+			else
+				@model_name = owner.item.model.name
+			end
+
+		link_to @manufacturer_name + " " + @model_name, item_path(owner.item) %> <%= link_to "Withdraw", owner, :method => :delete %>
+	</div>
+<% end %>
+
+<!-- I ideally would like to pass the employee's id here as a secondary param -->
+<%= link_to "Provision new Item for this Department", new_owner_path(department_id: @department.id) %>
+<br>
+
 <%= link_to "Edit this Item", edit_department_path(@department.id)%>
 <%= link_to "Delete this Item", @department, :method => :delete %>

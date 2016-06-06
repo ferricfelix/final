@@ -1,0 +1,29 @@
+<h2> Provision a new Item to <%= @department.name %> </h2>
+
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
+<div>
+
+	<%= form_for @owner do |o| %>
+<!-- this is a little bit like the directors selector, although it would be nice to have a search feature instead of a super long list -->
+	 <%= o.hidden_field :department_id, :value => @department.id%>
+	<p>
+		<%= o.label :item_id, "Item" %>
+		<%= o.collection_select :item_id, Item.all.order('id'), :id, :serial, prompt: true%>
+	</p>
+	<p>
+		<%= o.label :type_id, "Type" %>
+		<%= o.collection_select :type_id, Type.all.order('id'), :id, :status, prompt: true%>
+	</p>
+	<p>
+		<%= o.label :note %>
+		<%= o.text_field :note %>
+	</p>
+	
+<%= o.submit "Provision new Item" %>
+
+<% end %>
+
+</div>
