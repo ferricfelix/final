@@ -7,4 +7,7 @@ class Item < ActiveRecord::Base
   belongs_to :manufacturer
   belongs_to :model
   belongs_to :purchase
+
+  # could also validate uniqueness here
+  validates :serial, uniqueness: { case_sensitive: false }
 end

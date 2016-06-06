@@ -37,7 +37,13 @@ class ItemsController < ApplicationController
 		item.manufacturer_id = params[:item][:manufacturer_id]
 		item.purchase_id = params[:item][:purchase_id]
 		item.save
-		redirect_to item_path(item.id)
+		if item.valid?
+			redirect_to item_path(item.id)
+		else
+			# flash[:error] = employee.errors.messages #this is way too revealing
+			flash[:error] = "You entered an incomplete record, your submission was rolled back."
+			redirect_to new_item_path
+		end
 	end 
 
 	def destroy

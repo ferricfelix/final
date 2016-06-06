@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :employee
   belongs_to :item
   belongs_to :type #this creates the foreign key in the User table
+
+  validates: employee_id, presence: true
+  validates: item_id, presence: true
 end

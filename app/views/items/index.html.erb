@@ -6,10 +6,12 @@
 </p>
 <div>
 <% @items.each do |item| %>
-	
 	<div> 
-		<%= link_to "#{item.manufacturer.name.to_s + " " + item.model.name.to_s}", item_path(item) %>
+		<%= if item.manufacturer.nil? || item.model.nil?
+				link_to "#{item.serial}", item_path(item)	
+			else
+				link_to "#{item.manufacturer.name.to_s + " " + item.model.name.to_s}", item_path(item)
+			end %>
 	</div>
-
 <% end %>
 </div>

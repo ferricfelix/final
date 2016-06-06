@@ -1,5 +1,9 @@
 <h2> Add a New Item </h2>
 
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
 <div>
 <%= form_for @item do |f| %>
 	<p>

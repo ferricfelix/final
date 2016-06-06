@@ -1,5 +1,9 @@
 <h2> Provision a new Item to <%= @employee.person.first_name + " " + @employee.person.last_name %> </h2>
 
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
 <div>
 
 	<%= form_for @user do |u| %>
