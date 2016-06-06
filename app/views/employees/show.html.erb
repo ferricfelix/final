@@ -1,5 +1,9 @@
 <h2><%= @employee.person.first_name + " " + @employee.person.last_name + " | " + @employee.department.name %></h2>
 
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
 <p>	<strong>First Name: </strong> <%= @employee.person.first_name %> </p>
 <p>	<strong>First Name: </strong> <%= @employee.person.last_name %> </p>
 <p>	<strong>Nickname: </strong> <%= @employee.person.nickname %> </p>

@@ -1,5 +1,21 @@
 class UsersController < ApplicationController
 
+	def validate_user(user)
+		if user.valid?
+			# Client.where("orders_count = ? AND locked = ?", params[:orders], false)
+			if User.where("employee_id = ? AND item_id =?", params[:user][:employee_id], params[:user][:item_id]).present?
+				flash[:error] = "You entered a duplicate record, your submission was rolled back."
+				redirect_to employee_path(user.employee.id)
+			else 
+				redirect_to employee_path(user.employee.id)
+				user.save
+			end
+		else
+			flash[:error] = "You entered an incomplete record, your submission was rolled back."
+			redirect_to employee_path(user.employee.id)
+		end
+	end
+
 	def index
 		@users = Users.all
 	end
@@ -29,14 +45,7 @@ class UsersController < ApplicationController
 		user.note = params[:user][:note]
 		user.created_at = params[:user][:created_at]
 		user.updated_at = params[:user][:updated_at]
-		user.save
-		if user.valid?
-			redirect_to employee_path(user.employee.id)
-		else
-			# flash[:error] = employee.errors.messages #this is way too revealing
-			flash[:error] = "You entered an incomplete record, your submission was rolled back."
-			redirect_to employees_path
-		end
+		validate_user(user)
 	end
 
 	def edit
@@ -51,13 +60,7 @@ class UsersController < ApplicationController
 		user.note = params[:user][:note]
 		user.created_ad = params[:user][:created_at]
 		user.updated_at = params[:user][:updated_at]
-		if user.valid?
-			redirect_to employee_path(user.employee.id)
-		else
-			# flash[:error] = employee.errors.messages #this is way too revealing
-			flash[:error] = "You entered an incomplete record, your submission was rolled back."
-			redirect_to employees_path
-		end
+		validate_user(user)
 	end
 
 	def destroy

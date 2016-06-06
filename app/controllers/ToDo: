@@ -3,4 +3,4 @@ update edit controllers to include validations
 add validations to purchase
 nil vs exists in validation handling
 handle deletions and subsequent cascading updates
-handle duplicate entries
+handle duplicate entriewhere
