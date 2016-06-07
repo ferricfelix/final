@@ -3,7 +3,7 @@ class OwnersController < ApplicationController
 	def validate_owner(owner)
 		if owner.valid?
 			# Client.where("orders_count = ? AND locked = ?", params[:orders], false)
-			if Owner.where("department_id = ? AND item_id =?", params[:owner][:department_id], params[:owner][:item_id]).present?
+			if Owner.where("department_id = ? AND item_id = ?", params[:owner][:department_id], params[:owner][:item_id]).present?
 				flash[:error] = "You entered a duplicate record, your submission was rolled back."
 				redirect_to department_path(owner.department.id)
 			else 
