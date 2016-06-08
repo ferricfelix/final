@@ -3,7 +3,7 @@ module TechnicianAuth
 
 	def tech_auth
 		if session["technician_id"].blank?
-			redirect_to technicians_path
+			redirect_to log_in_path
 			return
 		end
 	end

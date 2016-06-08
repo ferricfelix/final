@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include TechnicianAuth
 
   def new
 
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
       if technician.authenticate(params[:password])
         session["technician_id"] = technician.id
         flash["notice"] = "Welcome back, #{technician.name}"
-        redirect_to employees_path
+        redirect_to technician_path(technician.id)
         return
       else
         # Email is ok, but password was wrong
@@ -22,6 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    tech_auth
     reset_session
     #instead of session[:user_id] = nil
     redirect_to root_path
