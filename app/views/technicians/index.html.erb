@@ -1,0 +1,22 @@
+<h1>Technicians</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @technicians.each do |technician| %>
+      <tr>
+        <td><%= technician.name %></td>
+        <td><%= technician.email %></td>
+        <td><%= technician.password %></td>
+        <td><%= link_to "Delete", technician_path(technician), method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

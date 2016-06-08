@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+	include TechnicianAuth
 
 	def validate_user(user)
+		tech_auth
 		if user.valid?
 			# Client.where("orders_count = ? AND locked = ?", params[:orders], false)
 			if User.where("employee_id = ? AND item_id =?", params[:user][:employee_id], params[:user][:item_id]).present?
@@ -17,10 +19,15 @@ class UsersController < ApplicationController
 	end
 
 	def index
+		tech_auth
+		# if session["user_id"].!present?
+		# 	redirect_to root_path
+		# else
 		@users = Users.all
 	end
 
 	def show
+		tech_auth
 		@user = User.find_by(id: params[:id])
 		if @user == nil
 				redirect_to users_path, notice: "This user relationship does not seem to exist, here is the list of current User entities"
@@ -28,6 +35,7 @@ class UsersController < ApplicationController
 	end
 
 	def new
+		tech_auth
 		@user = User.new
 		if params.has_key?(:employee_id)
 			@employee = Employee.find_by(id: params[:employee_id])
@@ -38,6 +46,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
+		tech_auth
 		user = User.new
 		user.employee_id = params[:user][:employee_id]
 		user.item_id = params[:user][:item_id]
@@ -49,10 +58,12 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		tech_auth
 		@user = User.find_by(id: params[:id])
 	end
 
 	def update
+		tech_auth
 		user = User.find_by(id: params[:id])
 		user.employee_id = params[:user][:employee_id]
 		user.item_id = params[:user][:item_id]
@@ -64,6 +75,7 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+		tech_auth
 		user = User.find_by(id: params[:id])
 		if user
 			user.delete

@@ -1,10 +1,13 @@
 class EmployeesController < ApplicationController
+	include TechnicianAuth
 
 	def index
+		tech_auth
 		@employees = Employee.all
 	end
 
 	def show
+		tech_auth
 		@employee = Employee.find_by(id: params[:id])
 		if @employee == nil
 			flash.now[:notice] = 'No such employee!'
@@ -13,10 +16,12 @@ class EmployeesController < ApplicationController
 	end	
 
 	def new
+		tech_auth
 		@employee = Employee.new
 	end
 	
 	def create
+		tech_auth
 		employee = Employee.new
 		employee.department_id = params[:employee][:department_id]
 		employee.person_id = params[:employee][:person_id]
@@ -35,6 +40,7 @@ class EmployeesController < ApplicationController
 	end 
 
 	def destroy
+		tech_auth
 		employee = Employee.find_by(id: params[:id])
 		if employee
 			employee.delete
@@ -43,10 +49,12 @@ class EmployeesController < ApplicationController
 	end
 
 	def edit
+		tech_auth
 		@employee = Employee.find_by(id: params[:id])
 	end
 
 	def update
+		tech_auth
 		employee = Employee.find_by(id: params[:id])
 		employee.department_id = params[:employee][:department_id]
 		employee.person_id = params[:employee][:person_id]

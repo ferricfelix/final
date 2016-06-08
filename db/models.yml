@@ -65,4 +65,8 @@ Owner
   created_at: datetime
   updated_at: datetime
 
-
+Technician
+  name: text
+  email: text
+  password_digest: text
+  admin: boolean(false) #sets the default bool value to false

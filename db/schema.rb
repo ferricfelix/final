@@ -83,6 +83,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.date    "create_on"
   end
 
+  create_table "technicians", force: :cascade do |t|
+    t.text    "name"
+    t.text    "email"
+    t.text    "password_digest"
+    t.boolean "admin",           default: false
+  end
+
   create_table "types", force: :cascade do |t|
     t.text "status"
   end

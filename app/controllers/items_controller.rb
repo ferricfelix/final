@@ -1,9 +1,13 @@
 class ItemsController < ApplicationController
+	include TechnicianAuth
+
 	def index
+		tech_auth
 		@items = Item.all
 	end
 
 	def show
+		tech_auth
 		@item = Item.find_by(id: params[:id])
 		if @item == nil
 				redirect_to root_path
@@ -26,10 +30,12 @@ class ItemsController < ApplicationController
 	end	
 
 	def new
+		tech_auth
 		@item = Item.new
 	end
 	
 	def create
+		tech_auth
 		item = Item.new
 		item.serial = params[:item][:serial]
 		item.value = params[:item][:value]
@@ -47,18 +53,21 @@ class ItemsController < ApplicationController
 	end 
 
 	def destroy
+		tech_auth
 		item = Item.find_by(id: params[:id])
 		if item
 			item.delete
 		end
-		redirect_to employees_root
+		redirect_to items_path
 	end
 
 	def edit
+		tech_auth
 		@item = Item.find_by(id: params[:id])
 	end
 
 	def update
+		tech_auth
 		item = Item.find_by(id: params[:id])
 		item.serial = params[:item][:serial]
 		item.value = params[:item][:value]

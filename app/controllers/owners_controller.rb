@@ -1,4 +1,5 @@
 class OwnersController < ApplicationController
+	include TechnicianAuth
 
 	def validate_owner(owner)
 		if owner.valid?
@@ -18,10 +19,12 @@ class OwnersController < ApplicationController
 
 
 	def index
+		tech_auth
 		@owners = Owners.all
 	end
 
 	def show
+		tech_auth
 		@owner = Owner.find_by(id: params[:id])
 		if @owner == nil
 				redirect_to owners_path, notice: "This owner relationship does not seem to exist, here is the list of current Owner entities"
@@ -29,6 +32,7 @@ class OwnersController < ApplicationController
 	end
 
 	def new
+		tech_auth
 		@owner = Owner.new
 		if params.has_key?(:department_id)
 			@department = Department.find_by(id: params[:department_id])
@@ -39,6 +43,7 @@ class OwnersController < ApplicationController
 	end
 
 	def create
+		tech_auth
 		owner = Owner.new
 		owner.department_id = params[:owner][:department_id]
 		owner.item_id = params[:owner][:item_id]
@@ -50,10 +55,12 @@ class OwnersController < ApplicationController
 	end
 
 	def edit
+		tech_auth
 		@owner = Owner.find_by(id: params[:id])
 	end
 
 	def update
+		tech_auth
 		owner = Owner.new
 		owner.employee_id = params[:owner][:department_id]
 		owner.item_id = params[:owner][:item_id]
@@ -65,6 +72,7 @@ class OwnersController < ApplicationController
 	end
 
 	def destroy
+		tech_auth
 		owner = Owner.find_by(id: params[:id])
 		if owner
 			owner.delete

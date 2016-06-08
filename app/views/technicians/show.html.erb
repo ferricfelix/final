@@ -1,0 +1,11 @@
+<h1>My Account</h1>
+
+<% if @technician.id == session[:technician_id].to_i %>
+  <p>Name: <%= @technician.name %></p>
+  <p>Email: <%= @technician.email %></p>
+  <p>Password: <%= @technician.password %></p>
+<% else %>
+
+<h3>Nice Try.</h3>
+
+<% end %>

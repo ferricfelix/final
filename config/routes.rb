@@ -31,6 +31,13 @@ The highlighted words correspond to standard Rails controller actions!
   resources :users
   resources :owners
 
+  resources :technicians
+  resources :sessions
+
+  get "log_in" => "sessions#new", :as => "log_in"
+  delete "log_out" => "sessions#destroy", :as => "log_out"
+  get "sign_up" => "users#new", :as => "sign_up"
+
   # get "/items" => "items#index" #done
  
   # get "/items/new" => "items#new" 
