@@ -16,6 +16,14 @@
 			<li><%= link_to "Employees", employees_path %></li>	
 			<li><%= link_to "Technicians", technicians_path %></li>	
 
+			<% if session["technician_id"].present? %>
+		        <% current_technician = Technician.find_by(id: session["technician_id"]) %>
+		        <li>Hello, <%= link_to current_technician.name, technician_path(current_technician) %>!</li>
+		        <li><%= link_to "Sign Out", log_out_path, :method => :delete %></li>
+	     	 <% else %>
+		        <li><%= link_to "Sign Up", new_technician_path %></li>
+		        <li><%= link_to "Sign In", log_in_path %></li>
+      		<% end %>
 		</ul>
 	</nav>
 
@@ -25,17 +33,6 @@
 		<% end %>
 	</div>
 	
-	<div>
-		<% if session["technician_id"].present? %>
-        <% current_technician = Technician.find_by(id: session["technician_id"]) %>
-        <li>Hello, <%= link_to current_technician.name, technician_path(current_technician) %>!</li>
-        <li><%= link_to "Sign Out", log_out_path, :method => :delete %></li>
-      <% else %>
-        <li><%= link_to "Sign Up", new_technician_path %></li>
-        <li><%= link_to "Sign In", log_in_path %></li>
-      <% end %>
-
-	</div>
 <%= yield %>
 
 </body>

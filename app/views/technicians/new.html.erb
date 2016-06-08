@@ -1,11 +1,3 @@
 <h1>Sign Up</h1>
 
-<%= form_for @technician do |t| %>
-
-  <p><%= t.label :name %><%= t.text_field :name, size: 40, autofocus: true, required: true %></p>
-  <p><%= t.label :email %><%= t.text_field :email, size: 40, required: true %></p>
-  <p><%= t.label :password %><%= t.password_field :password, size: 40, required: true %></p>
-  <p><%= t.label :password_confirmation %><%= t.password_field :password_confirmation, size: 40, required: true %></p>
-  <p><%= t.submit "Sign Me Up!" %></p>
-
-<% end %>
+ <%= render 'form' %>

@@ -1,0 +1,18 @@
+<div>
+<%= form_for @person do |p| %>
+	<p>
+		<%= p.label :first_name %>
+		<%= p.text_field :first_name, size: 40, autofocus: true, required: true %>
+	</p>
+	<p>
+		<%= p.label :last_name %>
+		<%= p.text_field :last_name, size: 40, required: true %>
+	</p>
+	<p>
+		<%= p.label :nickname%>
+		<%= p.text_field :nickname, size: 40, required: true %>
+	</p>
+	<%= p.submit %>
+
+<% end %>
+</div>

@@ -1,0 +1,30 @@
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
+<div>
+<%= form_for @item do |f| %>
+	<p>
+		<%= f.label :serial %>
+		<%= f.text_field :serial, size: 40, autofocus: true, required: true %>
+	</p>
+	<p>
+		<%= f.label :model_id %>
+		<%= f.collection_select :model_id, Model.all.order('name'), :id, :name, prompt: true%>
+	</p>
+	<p>
+		<%= f.label :manufacturer_id %>
+		<%= f.collection_select :manufacturer_id, Manufacturer.all.order('name'), :id, :name, prompt: true%>
+	</p>
+	<p>
+		<%= f.label :purchase_id %>
+		<%= f.collection_select :purchase_id, Purchase.all.order('create_on'), :id, :order, prompt: true %>
+	</p>
+	<p>
+		<%= f.label :value %>
+		<%= f.text_field :value %>
+	</p>
+	<%= f.submit %>
+
+<% end %>
+</div>

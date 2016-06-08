@@ -1,0 +1,39 @@
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
+<div>
+<%= form_for @employee do |e| %>
+<!-- this is a little bit like the directors selector, although it would be nice to have a search feature instead of a super long list -->
+	
+	<p>
+		<%= e.label :person_id, "Person" %>
+		<!-- I would ideally like to display both the last and the first name of the person in the select box, but I'm not sure how to pass it -->
+		<%= e.collection_select :person_id, Person.all.order('last_name'), :id, :last_name, prompt: true%> <!-- prompt: true in this case makes the fist line of the select box read 'Please Select' -->
+	</p>
+	<p>
+		<%= e.label :department_id, "Department" %>
+		<%= e.collection_select :department_id, Department.all.order('name'), :id, :name, prompt: true %>
+	</p>
+
+	<p>
+		<%= e.label :title %>
+		<%= e.text_field :title %>
+	</p>
+	<p>
+		<%= e.label :supported %>
+		<%= e.check_box :supported %>
+	</p>   
+	<p>
+		<%= e.label :phone %>
+		<%= e.text_field :phone %>
+	</p>
+	<p>
+		<%= e.label :address %>
+		<%= e.text_field :address %>
+	</p>
+	
+<%= e.submit %>
+
+<% end %>
+</div>
