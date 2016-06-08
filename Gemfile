@@ -7,6 +7,10 @@ gem 'rails', '4.2.6'
 
 # https://github.com/JeffCohen/ez
 gem 'ez'
+# https://github.com/codahale/bcrypt-ruby
+# the git page has nice use examples
+gem 'bcrypt'
+
 
 gem 'sqlite3'
 # Use SCSS for stylesheets

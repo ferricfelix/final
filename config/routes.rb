@@ -1,4 +1,55 @@
 Rails.application.routes.draw do
+  
+  # Example of Restful Routing
+
+=begin
+get "/posts" => "posts#index"
+get "/posts/:id" => "posts#show"
+get "/posts/new" => "posts#new"
+post "/posts" => "posts#create"  # usually a submitted form
+get "/posts/:id/edit" => "posts#edit"
+put "/posts/:id" => "posts#update" # usually a submitted form
+delete "/posts/:id" => "posts#destroy"
+
+GET all the posts (aka "index" the posts)
+GET just one specific post (aka "show" that post)
+GET the page that lets you create a new post (aka view the "new" post page)
+POST the data you just filled out for a new post back to the server so it can create that post (aka "create" the post)
+GET the page that lets you edit an existing post (aka view the "edit" post page)
+PUT the data you just filled out to edit the post back to the server so it can actually perform the update (aka "update" the post)
+DELETE one specific post by sending a delete request to the server (aka "destroy" the post)
+The highlighted words correspond to standard Rails controller actions!
+
+=end
+
+  
+  root 'employees#index'
+  resources :items
+  resources :people
+  resources :departments
+  resources :employees
+  resources :users
+  resources :owners
+
+  resources :technicians
+  resources :sessions
+
+  get "log_in" => "sessions#new", :as => "log_in"
+  delete "log_out" => "sessions#destroy", :as => "log_out"
+  get "sign_up" => "users#new", :as => "sign_up"
+
+  # get "/items" => "items#index" #done
+ 
+  # get "/items/new" => "items#new" 
+  # post "/items" => "items#create"
+  # get "/items/:id" => "items#show" #done
+  # get "/items/:id/edit" => "items#edit"
+  # put "/items/:id" => "items#update"
+  # delete "/items/:id" => "items#destroy"
+
+
+
+  #this is the rails way of specifying the root of the website
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

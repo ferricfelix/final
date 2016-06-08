@@ -1,0 +1,13 @@
+<h2><%= @manufacturer %> <%= @model %></h2>
+<!-- items can have many ownes, so this should be a loop in theory -->
+
+<p>	<strong>Serial: </strong> <%= @item.serial %> </p>
+<p>	<strong>Model: </strong> <%= @model %> </p>
+<p>	<strong>Manufacturer: </strong> <%= @manufacturer %> </p>
+<p>	<strong>Purchase Order Number: </strong> <%= @purchase %> </p>
+<p>	<strong>Value: </strong> <%= @item.value %> </p>
+<p>	<strong>Record created at: </strong> <%= @item.created_at %> </p>
+<p>	<strong>Recorded updated at: </strong> <%= @item.updated_at %> </p>
+
+<%= link_to "Edit this Item", edit_item_path(@item.id)%>
+<%= link_to "Delete this Item", @item, :method => :delete %>

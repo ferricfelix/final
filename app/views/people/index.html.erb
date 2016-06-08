@@ -1,0 +1,15 @@
+<div>
+	<h2> People </h2>
+</div>
+<p>
+<%= link_to "Create New Person", controller: "people" , action: "new" %>
+</p>
+<div>
+<% @persons.each do |person| %>
+	
+	<div> 
+		<%= link_to "#{person.first_name.to_s + " " + person.last_name.to_s}", person_path(person) %>
+	</div>
+
+<% end %>
+</div>

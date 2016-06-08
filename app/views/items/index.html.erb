@@ -1,0 +1,17 @@
+<div>
+	<p> Items </p>
+</div>
+<p>
+<%= link_to "Create New Item", controller: "items" , action: "new" %>
+</p>
+<div>
+<% @items.each do |item| %>
+	<div> 
+		<%= if item.manufacturer.nil? || item.model.nil?
+				link_to "#{item.serial}", item_path(item)	
+			else
+				link_to "#{item.manufacturer.name.to_s + " " + item.model.name.to_s}", item_path(item)
+			end %>
+	</div>
+<% end %>
+</div>

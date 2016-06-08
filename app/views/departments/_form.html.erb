@@ -1,0 +1,18 @@
+<div>
+<%= form_for @department do |d| %>
+	<p>
+		<%= d.label :name %>
+		<%= d.text_field :name, size: 40, autofocus: true, required: true %>
+	</p>
+	<p>
+		<%= d.label :phone %>
+		<%= d.text_field :phone %>
+	</p>
+	<p>
+		<%= d.label :address %>
+		<%= d.text_field :address %>
+	</p>
+	<%= d.submit %>
+
+<% end %>
+</div>

@@ -1,0 +1,41 @@
+<h2><%= @employee.person.first_name + " " + @employee.person.last_name + " | " + @employee.department.name %></h2>
+
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
+<p>	<strong>First Name: </strong> <%= @employee.person.first_name %> </p>
+<p>	<strong>First Name: </strong> <%= @employee.person.last_name %> </p>
+<p>	<strong>Nickname: </strong> <%= @employee.person.nickname %> </p>
+<!-- person can be in multiple departments, but an *employee* can only be in one department by design, so watch out for this -->
+<p>	<strong>Department: </strong> <%= @employee.department.name %> </p>
+<p>	<strong>title: </strong> <%= @employee.title %> </p>
+<p>	<strong>supported?: </strong> <%= @employee.supported %> </p>
+<p>	<strong>phone: </strong> <%= @employee.phone %> </p>
+<p>	<strong>address: </strong> <%= @employee.address %> </p>
+<p>	<strong>created_at: </strong> <%= @employee.created_at %> </p>
+<p>	<strong>updated_at: </strong> <%= @employee.updated_at %> </p>
+
+<% @employee.users.each do |user| %>
+	<div>
+		<%= if user.item.manufacturer.nil?
+				@manufacturer_name = "Missing Manufacturer"
+			else
+				@manufacturer_name = user.item.manufacturer.name
+			end
+			if user.item.model.nil?
+				@model_name = "Missing Model"
+			else
+				@model_name = user.item.model.name
+			end
+
+		link_to @manufacturer_name + " " + @model_name, item_path(user.item) %> <%= link_to "Withdraw", user, :method => :delete %>
+	</div>
+<% end %>
+
+<!-- I ideally would like to pass the employee's id here as a secondary param -->
+<%= link_to "Provision new Item for this Employee", new_user_path(employee_id: @employee.id) %>
+<br>
+
+<%= link_to "Edit this Employee", edit_employee_path(@employee.id)%>
+<%= link_to "Delete this Employee", @employee, :method => :delete %>

@@ -1,0 +1,29 @@
+<h2> Provision a new Item to <%= @employee.person.first_name + " " + @employee.person.last_name %> </h2>
+
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
+<div>
+
+	<%= form_for @user do |u| %>
+<!-- this is a little bit like the directors selector, although it would be nice to have a search feature instead of a super long list -->
+	 <%= u.hidden_field :employee_id, :value => @employee.id%>
+	<p>
+		<%= u.label :item_id, "Item" %>
+		<%= u.collection_select :item_id, Item.all.order('id'), :id, :serial, prompt: true%>
+	</p>
+	<p>
+		<%= u.label :type_id, "Type" %>
+		<%= u.collection_select :type_id, Type.all.order('id'), :id, :status, prompt: true%>
+	</p>
+	<p>
+		<%= u.label :note %>
+		<%= u.text_field :note, size: 120  %>
+	</p>
+	
+<%= u.submit "Provision new Item" %>
+
+<% end %>
+
+</div>
